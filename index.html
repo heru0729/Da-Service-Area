@@ -220,7 +220,7 @@
     background: var(--panel);
     border: 1px solid #ffffff12;
     border-radius: 12px;
-    padding: 18px 20px;
+    padding: 16px 18px; /* モバイル向けに少し縮小 */
     display: flex;
     align-items: flex-start;
     gap: 14px;
@@ -483,6 +483,18 @@
     text-align: center;
     padding: 40px 0 60px;
   }
+
+  /* 修正: cta-label に section-label と同等のスタイルを追加 */
+  .cta-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--accent2);
+    text-align: center;
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+
   .cta-button {
     display: inline-flex;
     align-items: center;
@@ -554,10 +566,45 @@
   .delay-2 { animation-delay: 0.2s; }
   .delay-3 { animation-delay: 0.3s; }
   .delay-4 { animation-delay: 0.4s; }
+
+  /* モバイル対応 */
   @media (max-width: 600px) {
     .sign-board { padding: 16px 20px 12px; }
     .modal-container { width: 95%; max-height: 90vh; }
     .modal-header h2 { font-size: 1rem; }
+
+    /* feature-cardのパディングをモバイルで調整 */
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .feature-card {
+      padding: 14px 16px;
+      gap: 12px;
+    }
+    .feature-emoji {
+      font-size: 1.5rem;
+    }
+
+    /* ルール項目：スマホで番号バッジを上部に配置して折り返しを防ぐ */
+    .rule-item {
+      flex-direction: column;
+      gap: 6px;
+    }
+    .rule-num {
+      align-self: flex-start;
+    }
+
+    /* CTAボタンをモバイルで調整 */
+    .cta-button {
+      font-size: 0.95rem;
+      padding: 15px 28px;
+      gap: 10px;
+    }
+    .discord-icon {
+      width: 22px;
+      height: 22px;
+    }
   }
 </style>
 </head>
@@ -623,7 +670,7 @@
     <div class="modal-body">
       <div class="accordion-modal" id="modalAccordionRoot">
         <!-- 基本ルール -->
-        <div class="accordion-item-modal open" style="--cat-color:#ffe600">
+        <div class="accordion-item-modal" style="--cat-color:#ffe600">
           <div class="accordion-header-modal">
             <span class="accordion-cat-icon">📋</span>
             <span class="accordion-cat-title">基本ルール</span>
